@@ -26,9 +26,9 @@ typedef struct task_queue_s {
 
 struct _thread_pool {
     task_queue *task_queue; //任务队列管理器
-    atomic_int quit;        //
+    atomic_int quit;        //线程池释放状态，为1时线程池不再添加线程到线程队列中
     int thrd_count;         //线程池线程数量
-    pthread_t *threads;
+    pthread_t *threads;     //线程数组
 };
 
 
